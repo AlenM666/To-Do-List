@@ -21,6 +21,7 @@ public class TaskController {
 
     @PostMapping
     public Task addTask(@RequestBody Task task) {
+        System.out.println("Received task: " + task); // Log the whole task object
         return taskRepository.save(task);
     }
 
@@ -28,4 +29,5 @@ public class TaskController {
     public void deleteTask(@PathVariable Long id) {
         taskRepository.deleteById(id);
     }
+
 }

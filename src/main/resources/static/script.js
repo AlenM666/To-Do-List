@@ -21,8 +21,9 @@ function addTaskToDOM(task) {
     const taskList = document.getElementById('task-list');
     const listItem = document.createElement('li');
 
-    listItem.textContent = task.description;
-    listItem.dataset.id = task.id;
+    // Create a p element for the task description next to the delete button
+    const taskDescriptionPara = document.createElement('p');
+    taskDescriptionPara.textContent = task.description;
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -31,7 +32,11 @@ function addTaskToDOM(task) {
         deleteTask(task.id, listItem);
     });
 
+    // Append the task description and delete button to the list item
+    listItem.appendChild(taskDescriptionPara);
     listItem.appendChild(deleteButton);
+
+    // Append the list item to the task list
     taskList.appendChild(listItem);
 }
 

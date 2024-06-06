@@ -12,7 +12,12 @@ public class Task {
     private Long id;
     private String description;
 
-    // Getters and Setters
+    @Override
+    public String toString() {
+        return "Task{id=" + id + ", description='" + description + "'}";
+    }
+
+
 }
 
 
