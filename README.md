@@ -13,7 +13,7 @@ Features:
 - [x] Load the todos from Local Storage when the site is loaded again
   <br>
 
-![image](src/main/resources/static/Screenshot from 2024-06-06 20-47-54.png)
+![](src/main/resources/static/sc.png)
 
 
 
