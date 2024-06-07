@@ -21,13 +21,14 @@ public class TaskController {
 
     @PostMapping
     public Task addTask(@RequestBody Task task) {
-        System.out.println("Received task: " + task); // Log the whole task object
-        return taskRepository.save(task);
+        System.out.println("Received task: " + task); // Debugging line to see received task
+        Task savedTask = taskRepository.save(task);
+        System.out.println("Saved task: " + savedTask); // Debugging line to see saved task
+        return savedTask;
     }
 
     @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskRepository.deleteById(id);
     }
-
 }

@@ -11,19 +11,26 @@ document.getElementById('add-task').addEventListener('click', function() {
             body: JSON.stringify({ description: taskText })
         })
         .then(response => response.json())
-        .then(task => addTaskToDOM(task));
+        .then(task => {
+            console.log('Task added:', task); // Log the returned task object
+            addTaskToDOM(task);
+        })
+        .catch(error => {
+            console.error('Error adding task:', error);
+        });
 
         taskInput.value = '';
     }
 });
 
 function addTaskToDOM(task) {
+    console.log('Adding task to DOM:', task); // Log the task object to check the description
     const taskList = document.getElementById('task-list');
     const listItem = document.createElement('li');
 
     // Create a p element for the task description next to the delete button
     const taskDescriptionPara = document.createElement('p');
-    taskDescriptionPara.textContent = task.description;
+    taskDescriptionPara.innerHTML = task.description;
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -54,5 +61,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     .then(response => response.json())
     .then(tasks => {
         tasks.forEach(task => addTaskToDOM(task));
+    })
+    .catch(error => {
+        console.error('Error loading tasks:', error);
     });
 });
