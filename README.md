@@ -1,7 +1,7 @@
 # To-Do-Web-App 📝
 <br>
 
-### This is a super simple Todo App built using js/html/css for front-end and JAVA back-end.
+### A simple To-Do-List app made with JS and JAVA.
 
 
 <br>
